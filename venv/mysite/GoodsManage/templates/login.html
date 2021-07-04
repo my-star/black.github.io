@@ -1,0 +1,8 @@
+<h1>IT Goods Manage System</h1>
+<p>{% block message %}{% endblock %}</p>
+<form method="post">
+    {% csrf_token %}
+    {{login_form.as_p}}
+    <input type="submit" value="Login">
+</form>
+

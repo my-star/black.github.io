@@ -1,0 +1,6 @@
+<p>{% block message %}{% endblock %}</p>
+<form method="post">
+    {% csrf_token %}
+    {{reg_form.as_p}}
+    <input type="submit" value="Register">
+</form>
