@@ -49,12 +49,19 @@ class RegistView(View):
           if password2==password1:
               user = User.objects.create(user_name=user_name, emp_num=emp_num, password=password1)
               if user:
+                  login_form =UserLogin()
                   return redirect('/login/')
           else:
               message = 'Please input two same password'
-              login_form = UserLogin()
+              reg_form = UserRegister()
               return render(request, 'login.html', locals())
         else:
                 message = 'Please input another EmployeeNum'
-                login_form = UserRegister()
-                return render(reques, 'register.html', locals())
+                reg_form = UserRegister()
+                return render(request, 'register.html', locals())
+
+class LogoutView(View):
+
+    def get(self,request):
+        request.session.flush()
+        return redirect('/login/')
