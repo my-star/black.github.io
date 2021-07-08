@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import User
+from .models import User,Goods,Type
 from .forms import UserLogin,UserRegister
 from django.views import View
 # Create your views here.
@@ -33,7 +33,8 @@ class HomeView(View):
         if not request.session.get('is_login',None):
             return redirect('/login/')
         else:
-            return render(request, 'home.html')
+            goods = Goods.objects.all()
+            return render(request, 'home.html', {'goods':goods})
 
 class RegistView(View):
     def get(self,request):

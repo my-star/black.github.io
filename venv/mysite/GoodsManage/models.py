@@ -7,13 +7,13 @@ class User(models.Model):
     password = models.CharField(verbose_name='password', max_length=64)
 
     def __str__(self):
-        return '{}{}'.format(self.username, self.emp_num)
+        return '{}{}'.format(self.user_name, self.emp_num)
 
 class Type(models.Model):
     type_name = models.CharField(verbose_name='GOOdsType',max_length=50)
 
     def __str__(self):
-        return self.typename
+        return self.type_name
 
 class Goods(models.Model):
     type = models.ForeignKey(to=Type,on_delete=models.CASCADE)

@@ -1,1 +1,27 @@
-<h1>IT Goods Manage System</h1>
+<h3>IT Goods Manage System</h3>
+<button type="submit" formaction="/add_good/" formmethod="get">Add</button>
+            <table align="center">
+                <tr>
+                    <th>序号</th>
+                    <td>物品类型</td>
+                    <td>物品名称</td>
+                    <td>数量</td>
+                    <td>存放地点</td>
+                    <td>操作</td>
+                </tr>
+               
+              
+                {% for good in goods %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{good.type}}</td>
+                    <td>{{good.goods_name}}</td>
+                    <td>{{good.goods_count}}</td>
+                    <td>{{good.position}}</td>
+                    <td><a href="">修改</a>
+                    <a href="">删除</a>
+                </tr>
+                {% endfor %}
+               
+            </table>
+
